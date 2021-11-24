@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Nav extends Component {
-    render(){
-        return(
-            <Link to="new" element={} />
+export class Nav extends Component {
+    render() {
+        return (
+            <div>
+                <p>Nav</p>
+            </div>
         );
-    };
-};
+    }
+}
 
 export default Nav;
