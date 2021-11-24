@@ -27,6 +27,7 @@ export const fetchMusics = (id) => dispatch => {
     .then(plural => dispatch({ type: FETCH_MUSICS, payload: plural }))
 }
 
+
 export const deleteMusic = id => dispatch => {
     console.log(dispatch)
     fetch(`http://localhost:3001/musics/${id}`, {
