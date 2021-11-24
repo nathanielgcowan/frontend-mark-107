@@ -1,15 +1,54 @@
 import React, { Component } from 'react';
-import ReactDOM, { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { newMusic } from '../actions/musicActions';
 
 class NewMusicForm extends Component {
-    render() {
+        constructor(props){
+            super(props)
+            this.state = {
+                chord: '',
+                instrument: '',
+                band: '',
+                album: '',
+                genre: '',
+                mambo_no_5: '',
+            }
+        }
 
+        handeChange = event => {
+            this.setState({ [event.target.value]: event.target.state })
+        }
+
+        handleSubmit = event => {
+            event.preventDefault();
+            this.props.newMusic({
+                ...this.state, likes: 0},
+                this.props.history)
+        }
+
+    render() {
         return (
             <div>
-                <p>New Music Form</p>
+                <form>
+                    <div>
+                        <input type="text" name="chord" value={this.state.chord} onChange={this.handleChange}
+                            id="chord" className="textbox" placeholder="chord" />
+                        <input type="text" name="instrument" value={this.state.instrument} onChange={this.handleChange}
+                            id="instrument" className="textbox" placeholder="instrument" />
+                        <input type="text" name="band" value={this.state.band} onChange={this.handleChange}
+                            id="band" className="textbox" placeholder="band" />
+                        <input type="text" name="album" value={this.state.album} onChange={this.handleChange}
+                            id="album" className="textbox" placeholder="album" />
+                        <input type="text" name="genre" value={this.state.genre} onChange={this.handleChange}
+                            id="genre" className="textbox" placeholder="genre" />
+                        <input type="text" name="mambo_no_5" value={this.state.mambo_no_5} onChange={this.handleChange}
+                            id="mambo_no_5" className="textbox" placeholder="mambo_no_5" />    
+                    </div>
+                    <input type="submit" value="Make Music"/>
+                </form>
             </div>
         );
     }
 }
 
-export default connect(null)(NewMusicForm);
+export default connect(null, { newMusic })(NewMusicForm);

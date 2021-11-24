@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 export class Nav extends Component {
     render() {
         return (
-            <div>
-                <p>Nav</p>
-            </div>
+            <nav>
+                <div>
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/new">NewMusicForm</Link></li>
+                        <li><Link to="/music">MusicContainer</Link></li>
+                    </ul>
+                </div>
+            </nav>
         );
     }
 }
