@@ -15,8 +15,8 @@ class NewMusicForm extends Component {
             }
         }
 
-        handeChange = event => {
-            this.setState({ [event.target.value]: event.target.state })
+        handleChange = event => {
+            this.setState({ [event.target.name]: event.target.value })
         }
 
         handleSubmit = event => {
@@ -29,7 +29,7 @@ class NewMusicForm extends Component {
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <input type="text" name="chord" value={this.state.chord} onChange={this.handleChange}
                             id="chord" className="textbox" placeholder="chord" />
